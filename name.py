@@ -14,10 +14,12 @@ flower.pos = 200,200
 
 
 def draw():
-    screen.blit('background',(0,0))
+    screen.blit("image",(0,0))
     flower.draw()
     bee.draw()
     screen.draw.text('score:'+str(score),color='black',topleft=(10,10))
+
+    
 
     if game_over:
             screen.fill('pink')
@@ -37,20 +39,20 @@ def update():
     global score
 
     if keyboard.left:
-         bee.x = bee.x - 2
+       bee.x = bee.x - 2
     if keyboard.right:
-      bee.x = bee.x + 2
+       bee.x = bee.x + 2
 
     if keyboard.up:
-         bee.y = bee.y - 2
+       bee.y = bee.y - 2
     if keyboard.down:
-         bee.y = bee.y + 2
+       bee.y = bee.y + 2
 
 flower_collected = bee.colliderect(flower)
 
 if flower_collected:
-        score = score + 10
-        place_flower()
+   score = score + 10
+   place_flower()
 
 clock.schedule(time_up, 60.0)
 
